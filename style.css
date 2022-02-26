@@ -96,6 +96,11 @@ body {
     color: var(--color-text-primary);
     border-radius: var(--border-radius);
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #111;
 }
 
 .add-more-btn {
