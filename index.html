@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./style.css">
     <script src="./main.js" defer></script>
-    <title>Timer App</title>
+    <title>CountdownX timer</title>
 </head>
 <body>
     
@@ -19,9 +19,17 @@
         <div class="timers">
             <div class="timer-widget">
                 <h1 class="timer-time">0</h1>
-                <input class="timer-input" type="text" placeholder="Enter countdown value">
+                <input class="timer-input" type="text" placeholder="Enter value ... (default 30)">
                 <button class="btn countdown-start-btn">Start</button>
-            </div>           
+            </div>
+            <div class="presets">
+                <button class="btn preset-btn">5</button>
+                <button class="btn preset-btn">10</button>
+                <button class="btn preset-btn">50</button>
+                <button class="btn preset-btn">100</button>
+                <button class="btn preset-btn">365</button>
+                <button class="btn preset-btn">500</button>
+            </div>          
         </div>
     </div>
 

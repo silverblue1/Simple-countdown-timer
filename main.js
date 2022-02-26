@@ -8,15 +8,17 @@ const timerTextClass = ".timer-time";
 const timerStartBtnClass = ".countdown-start-btn";
 const timerInputTextClass = ".timer-input";
 
+const presetBtnClass = ".preset-btn";
 
 const timerTextRef = document.querySelector(timerTextClass);
 const timerInputRef = document.querySelector(timerInputTextClass);
 const countdownStartBtn = document.querySelector(timerStartBtnClass);
 
+const allPresetBtns = document.querySelectorAll(presetBtnClass);
 
 let timer = null;
 
-const startCountDown = (timerInputRef, timerTextRef) => {
+const startCountDown = (timerInputRef, timerTextRef, countDownTime) => {
     if(timer !== null) {
         clearInterval(timer);
     }
@@ -24,10 +26,11 @@ const startCountDown = (timerInputRef, timerTextRef) => {
     if(Number(timerInputRef.value) > 0) {
         currentTime = timerInputRef.value;
     } else {
-        currentTime = defaultCountDownTime;
+        currentTime = countDownTime;
     }
 
     timer = setInterval(() => {
+        document.title = `${currentTime}`;
         timerTextRef.innerText = currentTime.toString();
         currentTime--;
 
@@ -39,7 +42,14 @@ const startCountDown = (timerInputRef, timerTextRef) => {
 
 }
 
+for(let i=0; i<allPresetBtns.length; i++) {
+    allPresetBtns[i].addEventListener('click', (e) => {
+        const timeToCount = Number(allPresetBtns[i].innerHTML);
+        startCountDown(timerInputRef, timerTextRef, timeToCount);
+    });
+}
+
 countdownStartBtn.addEventListener('click', (e) => {
-    startCountDown(timerInputRef, timerTextRef);
+    startCountDown(timerInputRef, timerTextRef, defaultCountDownTime);
     console.log("timer running...");
 })
